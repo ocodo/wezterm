@@ -66,6 +66,8 @@ config.tab_bar_style = {
     window_close_hover = window_close,
 }
 
+config.window_close_confirmation = "NeverPrompt"
+
 config.use_fancy_tab_bar = false
 config.window_decorations="INTEGRATED_BUTTONS|RESIZE"
 config.integrated_title_buttons = { 'Hide', 'Maximize', 'Close' }
