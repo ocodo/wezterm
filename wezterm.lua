@@ -55,7 +55,7 @@ end)
 
 local window_min = ' ◌ '
 local window_max = ' ● '
-local window_close = ' ⨂ '
+local window_close = ' ⮾ '
 
 config.tab_bar_style = {
     window_hide = window_min,
