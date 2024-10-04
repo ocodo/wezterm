@@ -1,7 +1,6 @@
 local os = require 'os'
 local wezterm = require 'wezterm'
-
-config = wezterm.config_builder()
+local config = wezterm.config_builder()
 
 if wezterm.target_triple == "x86_64-pc-windows-msvc" then
   config.wsl_domains = {
@@ -12,12 +11,6 @@ if wezterm.target_triple == "x86_64-pc-windows-msvc" then
 end
 
 config.mouse_bindings = {
-    -- Left-Click select instant copy
-    {
-        event = {Up = {streak = 1, button = "Left"}},
-        mods = "NONE",
-        action = wezterm.action {CompleteSelection = "PrimarySelection"}
-    },
     -- Right-Click paste
     {
         event = {Down = {streak = 1, button = "Right"}},
@@ -29,8 +22,15 @@ config.mouse_bindings = {
         event = {Up = {streak = 1, button = "Left"}},
         mods = "CTRL",
         action = "OpenLinkAtMouseCursor"
-    }
+    },
+    -- Left-Click select instant copy
+    {
+        event = { Up = { streak = 1, button = 'Left' } },
+        mods = 'NONE',
+        action = wezterm.action.CompleteSelectionOrOpenLinkAtMouseCursor 'Clipboard',
+    },
 }
+
 
 wezterm.on( "update-right-status", function(window)
     local date = wezterm.strftime("▌ %d %h  ▌ %H:%M:%S  ")
