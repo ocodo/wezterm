@@ -1,4 +1,3 @@
-local os = require 'os'
 local wezterm = require 'wezterm'
 local config = wezterm.config_builder()
 
@@ -31,6 +30,10 @@ config.mouse_bindings = {
     },
 }
 
+config.keys = {
+  { key = 'UpArrow', mods = 'SHIFT', action = wezterm.action.ScrollToPrompt(-1) },
+  { key = 'DownArrow', mods = 'SHIFT', action = wezterm.action.ScrollToPrompt(1) },
+}
 
 wezterm.on( "update-right-status", function(window)
     local date = wezterm.strftime("▌ %d %h  ▌ %H:%M:%S  ")
@@ -47,10 +50,6 @@ wezterm.on('format-tab-title', function (tab, _, _, _, _)
     return {
         { Text = ' ' .. tab.tab_index + 1 .. ' ' },
     }
-end)
-
-wezterm.on("gui-startup", function()
-  local tab, pane, window = wezterm.mux.spawn_window{}
 end)
 
 local window_min = ' ◌ '
