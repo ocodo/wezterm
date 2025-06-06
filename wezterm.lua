@@ -30,13 +30,16 @@ config.mouse_bindings = {
     },
 }
 
+-- Scroll to prev / next prompt entry
 config.keys = {
   { key = 'UpArrow', mods = 'SHIFT', action = wezterm.action.ScrollToPrompt(-1) },
   { key = 'DownArrow', mods = 'SHIFT', action = wezterm.action.ScrollToPrompt(1) },
 }
 
 wezterm.on( "update-right-status", function(window)
-    local date = wezterm.strftime("▌ %d %h  ▌ %H:%M:%S  ")
+    local cal = wezterm.nerdfonts.cod_calendar
+    local clock = wezterm.nerdfonts.md_clock_outline
+    local date = wezterm.strftime(cal .. "  %d %h  " .. clock .. " %H:%M:%S  ")
     window:set_right_status(
         wezterm.format(
             {
@@ -46,17 +49,28 @@ wezterm.on( "update-right-status", function(window)
     )
 end)
 
-wezterm.on('format-tab-title', function (tab, _, _, _, _)
+wezterm.on('format-tab-title', function (_, _, _, _, _)
+    local tab_icon = wezterm.nerdfonts.md_tab
     return {
-        { Text = ' ' .. tab.tab_index + 1 .. ' ' },
+        { Text = ' ' .. tab_icon .. '       ' },
     }
 end)
 
-local window_min = ' ◌ '
-local window_max = ' ● '
-local window_close = ' ⮾ '
+config.integrated_title_buttons = {
+  'Maximize',
+  'Hide',
+  'Close'
+}
+
+local window_min = ' ' .. wezterm.nerdfonts.cod_chevron_down ..  ' '
+local window_max = ' ' .. wezterm.nerdfonts.cod_chevron_up .. ' '
+local window_close = ' ' .. wezterm.nerdfonts.cod_close .. ' '
+local new_tab = ' ' .. wezterm.nerdfonts.md_plus .. ' '
+local new_tab_hover = '  ' .. wezterm.nerdfonts.md_tab_unselected .. '   '
 
 config.tab_bar_style = {
+    new_tab = new_tab,
+    new_tab_hover = new_tab_hover,
     window_hide = window_min,
     window_hide_hover = window_min,
     window_maximize = window_max,
@@ -69,27 +83,28 @@ config.window_close_confirmation = "NeverPrompt"
 
 config.use_fancy_tab_bar = false
 config.window_decorations="INTEGRATED_BUTTONS|RESIZE"
-config.integrated_title_buttons = { 'Hide', 'Maximize', 'Close' }
 config.harfbuzz_features = {"calt=0", "clig=0", "liga=0"}
 config.check_for_updates = true
 
+
 config.color_scheme = "Catppuccin Mocha"
+-- config.color_scheme = ""
 
 config.colors = {
-  background = "#001218"
+  background = "#001218",
 }
 
-config.font = wezterm.font("OcodoMono Nerd Font", {weight = 'Bold'})
+config.font = wezterm.font("OcodoMono Nerd Font")
 config.font_size = 16
 
 config.text_background_opacity = 0.80
 config.window_background_opacity = 0.96
 
 config.window_padding = {
-  left = "5px",
-  right = "5px",
-  top = "5px",
-  bottom = "5px"
+  left = "6px",
+  right = "6px",
+  top = "6px",
+  bottom = "6px"
 }
 
 return config
