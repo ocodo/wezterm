@@ -1,6 +1,12 @@
 local wezterm = require 'wezterm'
 local config = wezterm.config_builder()
 
+config.color_scheme = "Catppuccin Mocha"
+config.colors = {background = "#001218"}
+
+config.font = wezterm.font("OcodoMono Nerd Font", { weight = "Bold"})
+config.font_size = 12
+
 if wezterm.target_triple == "x86_64-pc-windows-msvc" then
   config.wsl_domains = {
     { name = 'WSL:Ubuntu', distribution = 'Ubuntu' },
@@ -85,18 +91,6 @@ config.use_fancy_tab_bar = false
 config.window_decorations="INTEGRATED_BUTTONS|RESIZE"
 config.harfbuzz_features = {"calt=0", "clig=0", "liga=0"}
 config.check_for_updates = true
-
-
-config.color_scheme = "Catppuccin Mocha"
--- config.color_scheme = ""
-
-config.colors = {
-  background = "#001218",
-}
-
-config.font = wezterm.font("OcodoMono Nerd Font")
-config.font_size = 16
-
 config.text_background_opacity = 0.80
 config.window_background_opacity = 0.96
 
