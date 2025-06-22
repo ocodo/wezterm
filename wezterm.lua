@@ -6,9 +6,11 @@ config.colors = {
     background = "#001218"
 }
 
-config.font = wezterm.font("OcodoMono Nerd Font", {
-    weight = "Bold"
-})
+config.font = wezterm.font("OcodoMono Nerd Font", 
+  {
+    weight="Thin", stretch="Normal", style="Normal"
+  })
+
 config.font_size = 12
 
 if wezterm.target_triple == "x86_64-pc-windows-msvc" then
