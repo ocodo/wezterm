@@ -8,7 +8,7 @@ config.colors = {
 
 config.font = wezterm.font("OcodoMono Nerd Font", 
   {
-    weight="Thin", stretch="Normal", style="Normal"
+    weight="Light", stretch="Normal", style="Normal"
   })
 
 config.font_size = 12
@@ -147,8 +147,8 @@ config.use_fancy_tab_bar = false
 config.window_decorations = "INTEGRATED_BUTTONS|RESIZE"
 config.harfbuzz_features = {"calt=0", "clig=0", "liga=0"}
 config.check_for_updates = true
-config.text_background_opacity = 0.80
-config.window_background_opacity = 0.96
+config.text_background_opacity = 0.97
+config.window_background_opacity = 0.97
 
 config.window_padding = {
     left = "6px",
