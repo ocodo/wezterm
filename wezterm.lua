@@ -24,7 +24,7 @@ end
 
 local launch_msys2 = {
   label = "MSYS2",
-  args = {"C:/msys64/msys2_shell.cmd", "-defterm", "-here", "-no-start", "-msys", "-shell", "zsh"},
+  args = {"C:/msys64/msys2_shell.cmd", "-defterm", "-here", "-no-start", "-use-full-path", "-msys", "-shell", "zsh"},
   cwd = "C:/msys64/home/" .. os.getenv('USERNAME'),
   domain = {DomainName="local"},
 }
