@@ -19,8 +19,19 @@ if wezterm.target_triple == "x86_64-pc-windows-msvc" then
         distribution = 'Ubuntu'
     }}
     config.default_domain = 'WSL:Ubuntu'
-    config.default_prog = {'powershell.exe'}
+    config.default_prog = {'C:/Program Files/PowerShell/7/pwsh.exe'}
 end
+
+local launch_msys2 = {
+  label = "MSYS2",
+  args = {"C:/msys64/msys2_shell.cmd", "-defterm", "-here", "-no-start", "-msys", "-shell", "zsh"},
+  cwd = "C:/msys64/home/" .. os.getenv('USERNAME'),
+  domain = {DomainName="local"},
+}
+
+config.launch_menu = {
+   launch_msys2,
+}
 
 config.mouse_bindings = { -- Right-Click paste
 {
