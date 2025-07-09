@@ -11,7 +11,7 @@ config.colors = {
    background = "#001218"
 }
 
-config.font = wezterm.font("OcodoMono Nerd Font", 
+config.font = wezterm.font("OcodoMonoDotZero Nerd Font Light", 
 			   {
 			      weight="Light",
 			      stretch="Normal",
