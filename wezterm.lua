@@ -11,12 +11,7 @@ config.colors = {
    background = "#001218"
 }
 
-config.font = wezterm.font("OcodoMono Nerd Font", 
-			   {
-			      weight="Light",
-			      stretch="Normal",
-			      style="Normal"
-})
+config.font = wezterm.font("OcodoMonoDotZero Nerd Font", { weight = 'Thin' })
 
 config.font_size = 12
 
