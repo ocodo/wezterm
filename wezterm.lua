@@ -6,15 +6,6 @@ local function file_exists(path)
     if f~=nil then io.close(f) return true else return false end
 end
 
-config.color_scheme = "Catppuccin Mocha"
-config.colors = {
-   background = "#001218"
-}
-
-config.font = wezterm.font("OcodoMonoDotZero Nerd Font", { weight = 'Thin' })
-
-config.font_size = 12
-
 if wezterm.target_triple == "x86_64-pc-windows-msvc" then
    config.wsl_domains = {{
 	 name = 'WSL:Ubuntu',
@@ -171,11 +162,22 @@ config.check_for_updates = true
 config.text_background_opacity = 0.97
 config.window_background_opacity = 0.97
 
+config.color_scheme = "Catppuccin Mocha"
+config.colors = {
+   background = "#001218"
+}
+
+-- config.font = wezterm.font("JetBrains Mono", { weight = 'Thin' })
+config.font = wezterm.font("OcodoMonoDotZero Nerd Font", { weight = 'Thin' })
+config.font_size = 12
+
 config.window_padding = {
    left = "6px",
    right = "6px",
    top = "6px",
    bottom = "6px"
 }
+
+config.scrollback_lines = 100000
 
 return config
