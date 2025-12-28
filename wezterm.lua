@@ -167,8 +167,8 @@ config.colors = {
    background = "#001218"
 }
 
--- config.font = wezterm.font("JetBrains Mono", { weight = 'Thin' })
-config.font = wezterm.font("OcodoMonoDotZero Nerd Font", { weight = 'Thin' })
+-- config.font = wezterm.font("JetBrains Mono", { weight = 'Light' })
+config.font = wezterm.font("OcodoMonoDotZero Nerd Font", { weight = 'Light' })
 config.font_size = 12
 
 config.window_padding = {
